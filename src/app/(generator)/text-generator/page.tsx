@@ -12,29 +12,14 @@ export default function Page() {
 
   const chatHandler = useChat({
     generateId: createIdGenerator({ prefix: 'msgc' }),
-    sendExtraMessageFields: true,
-    onResponse: () => setIsThinking(false),
+    onFinish: () => setIsThinking(false), // ✅ correct replacement
   });
 
   return (
     <div className="contents">
       <RenderMessage useChat={chatHandler} isThinking={isThinking} />
 
-      <div className="px-5 md:px-12">
-        <form
-          onSubmit={(e) => {
-            setIsThinking(true);
-            chatHandler.handleSubmit(e);
-          }}
-        >
-          <GeneratorInput
-            value={chatHandler.input}
-            onChange={chatHandler.handleInputChange}
-          />
-        </form>
-
-        <GradientBlob />
-      </div>
+     
     </div>
   );
 }
