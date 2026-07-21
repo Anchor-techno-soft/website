@@ -109,7 +109,7 @@ export default function AboutHero() {
           <div className="text-center">
 
             <h2 className="text-4xl font-bold text-primary-500">
-              50+
+              20+
             </h2>
 
             <p className="mt-2 text-gray-500 dark:text-gray-400">
